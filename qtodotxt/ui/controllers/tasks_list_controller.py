@@ -72,7 +72,7 @@ class TasksListController(QtCore.QObject):
 
     def _initEditTaskAction(self):
         action = QtWidgets.QAction(QtGui.QIcon(self.style + '/resources/TaskEdit.png'), self.tr('&Edit Task'), self)
-        action.setShortcuts(['Ctrl+E', 'Enter'])
+        action.setShortcuts(['Ctrl+E', 'Enter', 'F2'])
         action.setDisabled(True)
         action.triggered.connect(self.view.editCurrentTask)
         self.view.addAction(action)
