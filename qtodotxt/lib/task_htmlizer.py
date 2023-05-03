@@ -36,7 +36,7 @@ class TaskHtmlizer(object):
                 word = self._htmlizeDueDate(task, word)
             elif word.startswith("t:"):
                 word = self._htmlizeThresholdDate(task, word)
-            elif "://" in word:
+            elif ("://" in word) or ("mailto:" in word):
                 word = self._addUrl(word, self.linkColor)
             newwords.append(word)
         html = " ".join(newwords)
@@ -54,7 +54,7 @@ class TaskHtmlizer(object):
         return html
 
     def _addUrl(self, word, color="none"):
-        if ("http" in word) or ("www." in word):
+        if ("http" in word) or ("www." in word) or ("ftp" in word) or ("mailto:" in word):
             cleanWord = word
         else:
             parts = word.split('/')
