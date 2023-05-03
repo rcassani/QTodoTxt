@@ -55,12 +55,7 @@ class TaskHtmlizer(object):
 
     def _addUrl(self, word, color="none"):
         if ("http" in word) or ("www." in word):
-            parts = word.split('//', 1)
-            parts2 = parts[1].split('/')
-            end = parts2[0]
-            if len(parts2) > 1:
-                end += "/..."
-            cleanWord = parts[0] + '//' + end
+            cleanWord = word
         else:
             parts = word.split('/')
             if len(parts[-1]):
